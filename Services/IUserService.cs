@@ -10,5 +10,7 @@ namespace Jurmen.Services
     {
 
         Task<string> RegisterAsync(RegisterModel model);
+
+        Task<AuthenticationModel> GetTokenAsync(TokenRequestModel model);
     }
 }

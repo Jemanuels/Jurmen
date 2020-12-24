@@ -15,7 +15,7 @@ namespace Jurmen
 {
     public class Program
     {
-        public async static void Main(string[] args)
+        public async static Task Main(string[] args)
         {
            var host =  CreateHostBuilder(args).Build();
 
@@ -36,6 +36,8 @@ namespace Jurmen
                     logger.LogError(ex, "An error occured seeding the DB.");
                 }
             }
+
+            host.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

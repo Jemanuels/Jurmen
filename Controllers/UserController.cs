@@ -32,5 +32,12 @@ namespace Jurmen.Controllers
 
             return Ok(result);
         }
+
+        [HttpPost("addRole")]
+        public async Task<IActionResult> AddRoleAsync(AddRoleModel model)
+        {
+            var result = await _userService.AddRoleAsync(model);
+            return Ok(result);
+        }
     }
 }

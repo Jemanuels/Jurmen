@@ -12,12 +12,20 @@ namespace Jurmen.Controllers
     [ApiController]
     public class SecuredController : ControllerBase
     {
-       [HttpGet]
-#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
-       public async Task<IActionResult> GetSecuredData()
-#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
+       [HttpGet("secure")]
+
+       public  ActionResult GetSecuredData()
+
         {
+          
             return Ok("This Secured Data is available noly for Authenticated Users.");
+        }
+
+        [HttpPost("secure")]
+        [Authorize(Roles = "Administrator")]
+        public async Task<IActionResult> PostSecuredData()
+        {
+            return Ok("This Secured Data is available only for Authenticated Users.");
         }
     }
 }
